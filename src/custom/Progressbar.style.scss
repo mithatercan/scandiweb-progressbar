@@ -1,0 +1,58 @@
+.progressbar {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+
+  &::before {
+    content: "";
+    height: 5px;
+    background-color: rgb(239, 239, 239);
+    left: 0;
+    right: 0;
+    top: 1.5em;
+    position: absolute;
+    z-index: -2;
+  }
+  &__fill {
+    background-color: rgb(255, 146, 146);
+    height: 5px;
+    position: absolute;
+    left: 0;
+    top: 1.5em;
+    z-index: -1;
+    transition: 0.2s ease-in-out;
+  }
+
+  &__item {
+    position: relative;
+    margin-top: 2.7em;
+    color: gray;
+    transition: 0.2s ease-in-out;
+
+    &.active {
+      color: #000;
+
+      &::before {
+        color: #000;
+        background-color: rgb(255, 97, 97);
+        color: #fff;
+        border: 1px solid #fff;
+      }
+    }
+    &::before {
+      display: grid;
+      place-items: center;
+      content: "✔︎";
+      color: gray;
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: -2em;
+      left: 50%;
+      background-color: rgb(255, 255, 255);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      border: 1px solid rgb(65, 65, 65);
+    }
+  }
+}
